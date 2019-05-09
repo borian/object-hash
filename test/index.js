@@ -216,6 +216,14 @@ describe('hash', function() {
     assert.notEqual(hash(f), hash(b), 'Objects with different constructor should have a different Hash.');
   });
 
+  it('Distinguish asyncfunctions based on their type', function() {
+    debugger; 
+    var a = async function(){};
+    var b = async function(){};
+    console.log("[type]",typeof a);
+    assert.notEqual(hash(a), hash(b), 'Asyncfunktions should produce a Hash.');
+  });
+
   it('respectType = false', function() {
     var opt = { respectType: false };
 
